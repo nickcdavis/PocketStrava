@@ -19,28 +19,28 @@ This project will require a light amount of python knowledge as well as a bit of
 ## Software Installation
 First and foremost, this is all for the most part doable exclusively on the PocketC.H.I.P. however it may be a heck of a lot of typing. As you go through the instructions, I suggest you use ssh (unless specifically otherwise noted). If you aren't, you are living life in God Mode and probably don't need my little instructions anyway.
 
-###Step One: Log in via ssh
+######Step One: Log in via ssh
 Make sure you have a good connection to your PocketC.H.I.P, either USB or WIFI.
 ```
 ssh chip@chip.local
 ```
 If you haven't changed the password, the default password is 'chip'.
 
-###Step Two: Download the code to your PocketC.H.I.P
+######Step Two: Download the code to your PocketC.H.I.P
 Once the project is done downloading, you will want to open the directory.
 ```
 git clone XXX
 cd PocketStrava
 ```
 
-###Step Three: Prepare your PocketC.H.I.P.
+######Step Three: Prepare your PocketC.H.I.P.
 First you will want to make sure your PocketC.H.I.P is up to date with the latest and greatest. You will find a file called "install.sh" in the directory. This file will make updates to your PocketC.H.I.P and install any prerequisites. Please review the files contents before installing so you know what is happening in this step.
 ```
 sudo bash install.sh
 ```
 You may have to type in 'y' to confirm that you are okay with installing a few of the prerequisites.
 
-###Step Four: Open PocketStrava!
+######Step Four: Open PocketStrava!
 Okay, this is where we need to switch over to the terminal on your PocketC.H.I.P. On the PocketCHIP, type in the following:
 ```
 cd /PocketStrava
@@ -55,12 +55,12 @@ This error is actually okay. From here we can determine that the application is 
 
 Press the power button in the lower left to exit the application.
 
-###Step Five: Register an API on Strava.com
+######Step Five: Register an API on Strava.com
 I suggest checking out Strava's information for developers. You can find this here: http://labs.strava.com/developers/
 
 Basically, you will need to follow their documentation to create an API application in which this application will be interfacing. Once you do so, you will get a couple pieces of basic information: A Client ID and a Client Secret. You will use these to get an access token which will allow you to upload files to Strava.  
 
-###Step Six: Add client_id and client_secret to PocketStrava.cfg
+######Step Six: Add client_id and client_secret to PocketStrava.cfg
 In order to talk with the Strava API, we need to provide a client_id and client_secret values. After we supply these, we can retrieve a Strava user's access_token.
 
 Open PocketStrava.cfg (again, I suggest doing this through ssh)
@@ -76,7 +76,7 @@ client_secret = [YOUR CLIENT SECRET]
 
 Save the file (ctrl-x, y, enter).
 
-###Step Seven: Retrieve the access_token
+######Step Seven: Retrieve the access_token
 Making progress! So this is where the process gets a little silly. In order to authenticate the Strava API, you need to open a browser to complete the process since the Strava API utilizes JavaScript to complete the process. Here's how I currently suggest doing this:
 
 First and foremost, load up a real gritty web server (via ssh):
@@ -97,10 +97,10 @@ Once the authorization code is slammed in that config file, PocketStrava is read
 ## Hardware Installation
 At this point, the software should be good to go, with exception that you can't actually record a trip yet, bummer! We first need to install the GPS Breakout in order to get a latitude and longitude of your current location. Fortunately PocketC.H.I.P. makes this heckin' easy.
 
-###Step One: Examine the GPS breakout.
+######Step One: Examine the GPS breakout.
 If you went with the Adafruit Ultimate GPS Breakout, you'll likely notice that it comes packed with a lot of cool features. For this project, we are only really using tip-o'-the-iceberg features it supplies. You'll notice it has 9 pins. We are only going to use four of them: VIN, GND, RX and TX. It also comes with some pins that you can solder right onto the breakout, which I suggest doing since it'll be easier to interface with the USB to TTL cable.
 
-###Step Two: Plug the USB to TTL cable into the GPS Breakout
+######Step Two: Plug the USB to TTL cable into the GPS Breakout
 So, you do have the potential to really fry the GPS unit and/or CHIP computer. For the sake of your safety, and the safety of your hardware, that you read Adafruit's [guide on getting your Breakout set up the right way](https://learn.adafruit.com/adafruit-ultimate-gps-on-the-raspberry-pi/setting-everything-up).
 
 If you are feeling reckless, here's the pin/color combos:
@@ -109,10 +109,10 @@ If you are feeling reckless, here's the pin/color combos:
 * RX: Green wire
 * TX: White wire
 
-###Step Three: Plug it into the PocketCHIP
+######Step Three: Plug it into the PocketCHIP
 When I initially built this, I plugged the USB cable in before I turned the PocketCHIP on. I later learned that you can willy-nilly plug and unplug the breakout as needed with no repercussions.
 
-###Step Four: Run the Launcher!
+######Step Four: Run the Launcher!
 From here, everything should be hooked up and ready to go. You have your authorization key, you have your breakout connected to your PocketCHIP, and you have a sweet adventure lined up that needs recording. Time to try and record a trip. Run the launcher again.
 ```
 cd /PocketStrava
@@ -133,4 +133,5 @@ Twitter: @armaexmachina
 Instagram: armageddonmachine
 
 ## Acknowledgements
+
 Power button icon by "Yo! Baba" from the Noun Project
