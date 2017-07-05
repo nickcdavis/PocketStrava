@@ -1,0 +1,4 @@
+[Strava]
+client_id = [YOUR CLIENT ID]
+client_secret = [YOUR CLIENT SECRET]
+access_token = [YOUR ACCESS ID]
